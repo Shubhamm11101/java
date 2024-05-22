@@ -1,0 +1,14 @@
+{
+  "packageDirectories": [
+    {
+      "path": "force-app",
+      "default": true,
+      "package": "Animal Shelter Starter",
+      "versionName": "SPRING",
+      "versionDescription": "",
+      "versionNumber": "1.16.3"
+    }
+  ],
+  "namespace": "animalshelters",
+  "sourceApiVersion": "60.0"
+}

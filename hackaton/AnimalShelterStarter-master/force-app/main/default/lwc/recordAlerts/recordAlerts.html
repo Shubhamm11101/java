@@ -1,0 +1,36 @@
+<template>
+  <lightning-card title="Animal Alerts" icon-name="custom:custom53">
+    <div class="slds-m-around_medium">
+      <ul class="slds-has-dividers_bottom-space">
+        <template if:true={showRecords}>
+          <template for:each={records} for:item="rec">
+
+            <li class="slds-item" key={rec.Id}>
+                  <lightning-tile label={rec.animalshelters__Type__c} href="#" type="media" onclick={handleClick} data-alertid={rec.Id}>
+                      <lightning-icon slot="media" icon-name={rec.severityIconName} alternative-text="Severity Level"></lightning-icon>
+                      <ul class="slds-list_vertical-space">
+                          <li class="slds-item">{rec.animalshelters__Alert_Message__c}</li>
+
+                          <template lwc:if={rec.animalshelters__End_Date_Time__c}>
+                              <li class="slds-item">
+                                  <strong>Until&nbsp;<lightning-formatted-date-time value={rec.animalshelters__End_Date_Time__c}></lightning-formatted-date-time></strong>
+                              </li>
+                          </template>
+                      </ul>
+                  </lightning-tile>
+              </li>
+          </template>
+        </template>
+        <template if:true={isNoAlerts}>
+          <div class="slds-align_absolute-center">
+            <lightning-icon icon-name="action:approval" alternative-text="No Alerts" title="No Alerts"></lightning-icon>
+          </div>
+          <div class="slds-clearfix">
+            <br />
+            <p class="slds-align_absolute-center">No Active Alerts for this Animal</p>
+          </div>
+        </template>
+      </ul>
+    </div>
+  </lightning-card>
+</template>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PTS_Reason__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Put To Sleep (PTS) Reason.</inlineHelpText>
+    <label>PTS Reason</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Aggression to other animals</fullName>
+                <default>false</default>
+                <label>Aggression to other animals</label>
+            </value>
+            <value>
+                <fullName>Aggression to people</fullName>
+                <default>false</default>
+                <label>Aggression to people</label>
+            </value>
+            <value>
+                <fullName>Behavioural</fullName>
+                <default>false</default>
+                <label>Behavioural</label>
+            </value>
+            <value>
+                <fullName>Medical</fullName>
+                <default>false</default>
+                <label>Medical</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Stress or Anxiety</fullName>
+                <default>false</default>
+                <label>Stress or Anxiety</label>
+            </value>
+            <value>
+                <fullName>Old Age</fullName>
+                <default>false</default>
+                <label>Old Age</label>
+            </value>
+            <value>
+                <fullName>Illness - Terminal</fullName>
+                <default>false</default>
+                <label>Illness - Terminal</label>
+            </value>
+            <value>
+                <fullName>Illness</fullName>
+                <default>false</default>
+                <label>Illness</label>
+            </value>
+            <value>
+                <fullName>To comply with euthanasia policy</fullName>
+                <default>false</default>
+                <label>To comply with euthanasia policy</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

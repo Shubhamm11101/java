@@ -1,0 +1,104 @@
+<!-- Visualforce Page: AnimalCageCard
+    Displays a subset of fields from the current Animal Record to be printed
+    Date: 26th May 2022
+    Author: Chris Rolfe
+	Updated: 20th Oct 2022 to include FieldSets for Breeds Migration
+    Updated: 23rd Jan 2023 - Security Fixes
+-->
+
+<apex:page standardController="Animal__c" showHeader="false" sidebar="false" applyBodyTag="false" applyHtmlTag="false">
+
+    <apex:outputText escape="false" value="Animal Name: {! animalshelters__Animal__c.animalshelters__Animal_Name__c }" rendered="false"/>
+    <apex:repeat value="{!$ObjectType.Animal__c.FieldSets.Animal_Cage_Card_Field_Set}" var="field">
+        <apex:outputText escape="false" value="{!Animal__c[field]}" rendered="false" />
+    </apex:repeat>
+    <apex:outputText escape="false" value="{!Animal__c.Record_QR_Code__c}" rendered="false" />
+
+    <html lang="en">
+
+    <head>
+        <style>
+            @page {
+                size: A5 landscape;
+                margin: 5mm;
+                border: 2px solid black;
+                @bottom-center {
+                    content: element(footer-section);
+                }
+            }
+
+            .title {
+                font-family: Arial Unicode MS, serif;
+                font-size: 20px;
+                font-weight: 600;
+                color: #fff!important;
+                text-align: center;
+                text-transform: uppercase;
+                background: #4e75a3;
+                display: block;
+                padding: 10px;
+                margin: 0;
+            }
+
+            .details {
+                font-family: Arial Unicode MS, serif;
+                font-size: 16px;
+                font-weight: 600;
+            }
+
+            .footer-section {
+                font-family: Arial Unicode MS, serif;
+                font-size: 10px;
+                font-weight: 600;
+                text-align: center;
+                display: block;
+                padding: 10px;
+                position: running(footer-section);
+            }
+        </style>
+        <title>Animal Cage Card</title>
+    </head>
+
+    <body>
+        <h1 class="title">
+            <apex:outputText escape="false" value="Animal Name: {! animalshelters__Animal__c.animalshelters__Animal_Name__c }"/>
+            <br/>
+        </h1>
+
+        <apex:form >
+            <apex:commandButton value="Print" onclick="window.print();" />
+            <apex:pageBlock >
+
+                <apex:pageBlockSection columns="2">
+                    <apex:pageBlockSectionItem >
+                        <apex:outputPanel >
+	                        <apex:repeat value="{!$ObjectType.Animal__c.FieldSets.Animal_Cage_Card_Field_Set}" var="field">
+    	                    	<apex:outputText escape="false" styleClass="details" value="{!field.Label}" /><br/>
+					    	</apex:repeat>
+                    		<br/>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputPanel >
+                        	<apex:repeat value="{!$ObjectType.Animal__c.FieldSets.Animal_Cage_Card_Field_Set}" var="field">
+                        		<apex:outputText escape="false" styleClass="details" value="{!Animal__c[field]}" /><br/>
+                            </apex:repeat>
+                    		<br/>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+
+                    	<apex:outputText escape="false" value="{! animalshelters__Animal__c.animalshelters__Record_QR_Code__c }" />
+                    	<br/>
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+            <apex:outputText escape="false" styleClass="details" value="Printed on {! NOW()}" />
+        </apex:form>
+        <div class="footer-section">
+            <div>
+                Animal Shelter Starter Pack
+            </div>
+        </div>
+    </body>
+
+    </html>
+</apex:page>

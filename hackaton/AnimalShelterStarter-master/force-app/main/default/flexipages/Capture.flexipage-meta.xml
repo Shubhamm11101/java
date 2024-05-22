@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Displaying the location of captured/rescued Animals</description>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>descDateField</name>
+                    <value>animalshelters__Date_of_Arrival__c</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>descTextField</name>
+                    <value>animalshelters__Type__c</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>latField</name>
+                    <value>animalshelters__Geolocation__latitude__s</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>longField</name>
+                    <value>animalshelters__Geolocation__longitude__s</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>mapTitle</name>
+                    <value>Animal Locations</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>nameField</name>
+                    <value>animalshelters__Animal_Name__c</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>obj</name>
+                    <value>animalshelters__Animal__c</value>
+                </componentInstanceProperties>
+                <componentName>LocationMap</componentName>
+                <identifier>LocationMap</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>main</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <masterLabel>Capture</masterLabel>
+    <template>
+        <name>flexipage:defaultAppHomeTemplate</name>
+    </template>
+    <type>AppPage</type>
+</FlexiPage>

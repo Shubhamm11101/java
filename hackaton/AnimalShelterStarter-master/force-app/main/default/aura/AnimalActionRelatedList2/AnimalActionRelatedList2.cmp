@@ -1,0 +1,33 @@
+<!--
+  @File Name          : AnimalActionRelatedList2.cmp
+  @Description        : Related List component that filters on Record Type
+  @Author             : Chris Rolfe (Salesforce.org)
+  @Group              : 
+  @Last Modified By   : Chris Rolfe (Salesforce.org)
+  @Last Modified On   : 07/05/2020, 10:30:00 AM
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    07/05/2020   Chris Rolfe (Salesforce.org)     Initial Version
+-->
+
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="AnimalActionRLClass2">
+    <aura:attribute name="mydata" type="Object"/>
+    <aura:attribute name="mydataLength" type="String"/>
+    <aura:attribute name="mycolumns" type="List"/>
+    <aura:attribute name="recordTypeName" type="String" access="global"/>
+    <aura:attribute name="recordId" type="Id"/>
+    <aura:dependency resource="markup://force:navigateToSObject" type="EVENT"/>
+    
+    <aura:handler name="init" value="{!this}" action="{! c.init }"/>
+   
+    <lightning:card title="{!'Actions (' + v.mydataLength + ')'}" iconName="utility:connected_apps" class="slds-page-header noborderbottom" >
+        <lightning:datatable
+                keyField="id"
+                data="{! v.mydata }"
+                columns="{! v.mycolumns }"
+                hideCheckboxColumn="true"
+                columnWidthsMode="auto"/>
+        
+    </lightning:card>
+    
+</aura:component>
